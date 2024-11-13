@@ -5,7 +5,7 @@ import { getLocalStorage } from "./utils.mjs";
 const dataSource = new ProductData("tents");
 
 function addProductToCart(product) {
-  const cartItems = getLocalStorage("so-cart");
+  let cartItems = getLocalStorage("so-cart");
   // If cartItems is not an array, initialize it as an empty array
   if (!Array.isArray(cartItems)) {
     cartItems = [];
