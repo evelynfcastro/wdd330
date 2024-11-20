@@ -4,7 +4,22 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  console.log(cartItems[0].ListPrice)
+
+  let currentTotal = 0
+  for (let i=0; i < cartItems.length; i++) {
+    
+    currentTotal += cartItems[i].ListPrice;
+  };
+  console.log("current")
+  console.log(currentTotal)
+  if (currentTotal > 0) {
+    let cartTotal = document.querySelector(".cart-total")
+    cartTotal.innerHTML = `Total: ${currentTotal}`
 }
+  }
+
+  
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
